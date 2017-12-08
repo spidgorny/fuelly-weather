@@ -10,9 +10,9 @@ Hence the site calculates the distance you travelled and fuel used. So it shows 
 I'm learning Python and Machine Learning so I needed some data to play with. So I downloaded my own consumption data from Fuelly since 2010.
 
 I know the fuel consumption is higher in winter when you have heating on and the motor needs heating as well.
-The idea of the tool is then to see if the consumption is really correlates with the outside temperatures.
+The idea of this project is then to see if the consumption is really correlates with the outside temperatures.
 
-I've downloaded weather data for my city from [European Climate Assessment & Dataset](http://www.ecad.eu/dailydata/datadictionary.php) for my city.
+I've downloaded weather data for my city from [European Climate Assessment &amp; Dataset](http://www.ecad.eu/dailydata/datadictionary.php).
 
 After some numpy and pandas manipulations both the temperature and consumption data can be shown on the same chart.
 
