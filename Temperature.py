@@ -1,6 +1,9 @@
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
+import time
+from datetime import date
+from datetime import datetime
 
 
 class Temperature:
@@ -30,7 +33,7 @@ class Temperature:
 
 	def datestr2num(self, num):
 		# print(int(num[0:4]), int(num[4:6]), int(num[6:8]))
-		return datetime.date(int(num[0:4]), int(num[4:6]), int(num[6:8]))
+		return date(int(num[0:4]), int(num[4:6]), int(num[6:8]))
 
 	def tenTimes(self, num):
 		return float(num) / 10.0
@@ -61,6 +64,24 @@ class Temperature:
 		mng.window.showMaximized()
 		mng.resize(*mng.window.maxsize())
 		mng.full_screen_toggle()
+
+	def limitByDate(self, date_combined):
+		tdata = list(self.csv)
+		# tdata = list(zip(*tdata))
+		print('before', len(tdata))
+		tdata = list(filter(lambda row: str(row[1]) >= date_combined, tdata))
+		print('after', len(tdata))
+		print(*tdata[0:10], sep='\n')
+		return tdata
+
+	def splitInTwo(self, tdata):
+		# get columns from tdata
+		columns = list(zip(*tdata))
+
+		# convert 20170101 to real date
+		dates = [datetime.strptime(str(item), '%Y%m%d') for item in columns[1]]
+		temp = columns[2]
+		return dates, temp
 
 
 
